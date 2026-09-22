@@ -23,7 +23,7 @@
   .wrap{max-width:1280px;margin:0 auto;}
 
   .doc-header{display:flex;align-items:center;gap:18px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 22px;margin:20px 0 10px;box-shadow:0 1px 2px rgba(0,0,0,.04);}
-  .doc-header img{height:52px;width:auto;display:block;}
+  .doc-header img{height:34px;width:auto;display:block;}
   .doc-title-block .doc-title{font-family:'Oswald',sans-serif;font-size:19px;font-weight:600;text-transform:uppercase;color:var(--black);}
   .doc-title-block .doc-sub{font-size:12px;color:var(--muted);margin-top:2px;}
   .doc-approval{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:20px;background:var(--panel);box-shadow:0 1px 2px rgba(0,0,0,.04);flex-wrap:wrap;}
@@ -37,7 +37,7 @@
   .meta{text-align:right;font-size:12px;color:var(--muted);line-height:1.6;}
   .meta b{color:var(--text);}
 
-  .hero-row{display:grid;grid-template-columns:1.3fr repeat(4,1fr);gap:14px;margin-bottom:14px;}
+  .hero-row{display:grid;grid-template-columns:1.3fr repeat(5,1fr);gap:14px;margin-bottom:14px;}
   .hero-main{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--yellow);border-radius:10px;padding:20px 22px;box-shadow:0 1px 2px rgba(0,0,0,.04);}
   .hero-main .label,.kpi-card .label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-family:'IBM Plex Mono',monospace;}
   .hero-main .value{font-family:'Oswald',sans-serif;font-size:44px;font-weight:600;line-height:1.1;margin-top:4px;color:var(--black);}
@@ -105,7 +105,7 @@
   @media (max-width:640px){
     body{padding:0 12px 40px;}
     .hero-main .value{font-size:34px;}
-    .doc-header img{height:38px;}
+    .doc-header img{height:26px;}
   }
 </style>
 </head>
@@ -121,21 +121,21 @@
     </div>
   </div>
   <div class="doc-approval">
-    <div><span class="k">Base de Dados</span>ROC - Geral.xlsx · abas Faltas (325 linhas) e Sobras (244 linhas)</div>
+    <div><span class="k">Base de Dados</span>ROC - Geral.xlsx · aba Base Central (357 ROCs consolidadas)</div>
     <div><span class="k">Conciliação</span>Expresso 19/09 × SAP 18/09</div>
     <div style="border-right:none;"><span class="k">Meta de Encerramento</span>23 ROCs por dia útil</div>
   </div>
 
   <header>
     <div><h1>ROC — Desvios Internos <span>/ Faltantes e Sobras</span></h1></div>
-    <div class="meta">Fonte: abas Faltas/Sobras (ROC - Geral.xlsx)<br><b>Atualizado em 19/09/2026</b></div>
+    <div class="meta">Fonte: aba Base Central (ROC - Geral.xlsx)<br><b>Atualizado em 21/09/2026</b></div>
   </header>
 
   <div class="hero-row">
     <div class="hero-main">
       <div class="label">Total de ROCs — Desvios Internos</div>
       <div class="value">357</div>
-      <div class="sub">0 finalizadas + 357 pendentes · 248 de Faltas Internas + 109 de Sobras Internas</div>
+      <div class="sub">0 finalizadas · 57 em análise Expresso · 2 encaminhadas DAF · 298 pendentes · 248 Faltas + 109 Sobras</div>
     </div>
     <div class="kpi-card crit">
       <div class="label">ROCs de Faltas Internas</div>
@@ -147,32 +147,47 @@
       <div class="value">109</div>
       <div class="sub">30,5% do total de ROCs</div>
     </div>
-    <div class="kpi-card money crit" style="grid-column:span 2;">
-      <div class="label">Custo de Divergência</div>
+    <div class="kpi-card money crit">
+      <div class="label">Custo de Faltante</div>
+      <div class="value">R$ 1.777.926,11</div>
+      <div class="sub">248 ROCs · Base Central, TIPO = FALTANTE</div>
+    </div>
+    <div class="kpi-card money warn">
+      <div class="label">Custo de Sobrante</div>
+      <div class="value">R$ 477.733,54</div>
+      <div class="sub">109 ROCs · Base Central, TIPO = SOBRANTE</div>
+    </div>
+    <div class="kpi-card money">
+      <div class="label">Custo Total</div>
       <div class="value">R$ 2.255.659,65</div>
-      <div class="sub">Valor total das 357 ROCs de Desvios Internos (Faltas + Sobras)</div>
+      <div class="sub">Soma de Faltante + Sobrante · 357 ROCs</div>
     </div>
   </div>
 
   <div class="kpi-grid">
     <div class="kpi-card ok">
-      <div class="label">ROCs Finalizadas</div>
+      <div class="label">Finalizadas</div>
       <div class="value">0</div>
-      <div class="sub">0,0% das ROCs de Desvios Internos abertas · nenhuma finalização registrada ainda</div>
+      <div class="sub">0,0% do total · coluna Atualização sem nenhum registro de finalização ainda</div>
     </div>
-    <div class="kpi-card crit">
-      <div class="label">ROCs Pendentes</div>
-      <div class="value">357</div>
-      <div class="sub">100,0% das ROCs de Desvios Internos abertas</div>
+    <div class="kpi-card">
+      <div class="label">Em Análise pela Expresso</div>
+      <div class="value">57</div>
+      <div class="sub">16,0% do total · coluna Atualização = "Em analise Expresso"</div>
     </div>
     <div class="kpi-card warn">
-      <div class="label">Materiais sem ROC</div>
-      <div class="value">77</div>
-      <div class="sub">Faltas ainda sem abertura de ROC</div>
+      <div class="label">Encaminhada para Análise DAF</div>
+      <div class="value">2</div>
+      <div class="sub">0,6% do total · coluna Atualização = "Em analise DAF"</div>
+    </div>
+    <div class="kpi-card crit">
+      <div class="label">Pendentes</div>
+      <div class="value">298</div>
+      <div class="sub">83,5% do total · coluna Atualização = "Pendentes" (inclui 41 materiais ainda sem ROC aberta)</div>
     </div>
   </div>
 
-  <div class="section-title"><span class="tag">VELOCÍMETRO</span><h2>Percentual de ROCs Finalizadas vs. Pendentes</h2><span class="note">Desvios Internos (Faltas + Sobras) · 357 ROCs distintas</span><div class="rule"></div></div>
+  <div class="section-title"><span class="tag">VELOCÍMETRO</span><h2>Percentual de ROCs Finalizadas vs. Pendentes</h2><span class="note">Desvios Internos (Faltas + Sobras) · 357 ROCs distintas · status pela coluna Atualização</span><div class="rule"></div></div>
   <div class="charts-row">
     <div class="panel gauge-wrap">
       <h3>ROCs Finalizadas</h3>
@@ -194,26 +209,27 @@
         <span><i style="background:#F5B400;"></i>Alerta 33-66%</span>
         <span><i style="background:#2FAE66;"></i>Meta &gt;66%</span>
       </div>
-      <div class="note-box">0 de 357 ROCs de Desvios Internos finalizadas até o momento · 357 (100,0%) seguem pendentes, aguardando a coluna de encerramento a ser incluída na base.</div>
+      <div class="note-box">0 de 357 ROCs de Desvios Internos finalizadas até o momento (coluna Atualização) · 57 (16,0%) em análise pela Expresso · 2 (0,6%) encaminhadas para análise DAF · 298 (83,5%) seguem pendentes.</div>
     </div>
     <div class="panel">
       <h3>Finalizadas vs. Pendentes vs. Sem ROC</h3>
       <canvas id="chartStatusBar" style="max-height:280px;"></canvas>
-      <div class="note-box">Base: 357 ROCs de Desvios Internos já abertas (248 Faltas + 109 Sobras) + 77 materiais em falta que ainda não têm ROC aberta.</div>
+      <div class="note-box">Status medido pela coluna <b>Atualização</b> (Base Central): <b>0</b> Finalizadas · <b>57</b> Em Análise pela Expresso · <b>2</b> Encaminhadas para Análise DAF · <b>298</b> Pendentes (já somando os 41 materiais ainda sem ROC aberta com esse status).</div>
     </div>
   </div>
 
   <div class="section-title"><span class="tag">FLUXO 20 DIAS</span><h2>Distribuição de ROCs Pendentes — Próximos 20 Dias Úteis</h2><span class="note">21/09/2026 a 16/10/2026 · meta de 23 ROCs/dia</span><div class="rule"></div></div>
   <div class="panel">
     <h3>ROCs/dia — Distribuição Uniforme do Total Pendente (357 ÷ 20) vs. Meta Diária</h3>
+    <div class="flag-box" style="margin-bottom:14px;">Situação em <b>21/09/2026 (hoje)</b>, pela coluna Atualização: <b>0</b> Finalizadas · <b>57</b> Em Análise pela Expresso · <b>2</b> Encaminhadas para Análise DAF · <b>298</b> Pendentes — total de <b>357</b> ROCs de Desvios Internos ainda em aberto.</div>
     <canvas id="chartDesempenho" style="max-height:320px;"></canvas>
-    <div class="note-box">Distribuição uniforme necessária: 357 ROCs pendentes ÷ 20 dias úteis = <b>17,85 ROCs/dia</b> para zerar o passivo até 16/10/2026. A meta de encerramento é de <b>23 ROCs por dia</b> — folga frente ao ritmo necessário.</div>
+    <div class="note-box">Distribuição uniforme necessária: 357 ROCs de Desvios Internos ainda não finalizadas ÷ 20 dias úteis = <b>17,85 ROCs/dia</b> para zerar o passivo até 16/10/2026. A meta de encerramento é de <b>23 ROCs por dia</b> — folga frente ao ritmo necessário.</div>
     <div class="flag-box">Mantendo a meta de 23 encerramentos/dia útil, as 357 ROCs pendentes podem ser zeradas em aproximadamente <b>16 dias úteis</b> — dentro da janela de 20 dias.</div>
   </div>
 
   <footer>
     <span>ROC — Desvios Internos · Expresso 3300 — Armazenagem e Logística</span>
-    <span>Fonte: ROC - Geral.xlsx (abas Faltas/Sobras) · Atualizado em 19/09/2026</span>
+    <span>Fonte: ROC - Geral.xlsx (aba Base Central) · Atualizado em 21/09/2026</span>
   </footer>
 </div>
 
@@ -224,8 +240,8 @@ function fmtPct1(v){ return v.toLocaleString('pt-BR',{minimumFractionDigits:1,ma
 new Chart(document.getElementById('chartStatusBar'), {
   type:'bar',
   data:{
-    labels:['Finalizadas','Pendentes','Sem ROC'],
-    datasets:[{label:'ROCs / Materiais', data:[0,357,77], backgroundColor:['#2FAE66','#E2483D','#B8BCC2'], borderRadius:4}]
+    labels:['Finalizadas','Em Análise Expresso','Encaminhada DAF','Pendentes'],
+    datasets:[{label:'ROCs', data:[0,57,2,298], backgroundColor:['#2FAE66','#2563a8','#F5B400','#E2483D'], borderRadius:4}]
   },
   options:{
     indexAxis:'y', responsive:true,
@@ -237,7 +253,7 @@ new Chart(document.getElementById('chartStatusBar'), {
 // ===== Fluxo 20 dias =====
 new Chart(document.getElementById('chartDesempenho'), {
   data:{
-    labels:["21/09", "22/09", "23/09", "24/09", "25/09", "28/09", "29/09", "30/09", "01/10", "02/10", "05/10", "06/10", "07/10", "08/10", "09/10", "12/10", "13/10", "14/10", "15/10", "16/10"],
+    labels:["21/09 (hoje)", "22/09", "23/09", "24/09", "25/09", "28/09", "29/09", "30/09", "01/10", "02/10", "05/10", "06/10", "07/10", "08/10", "09/10", "12/10", "13/10", "14/10", "15/10", "16/10"],
     datasets:[
       {type:'bar', label:'Distribuição Uniforme Necessária (357 ÷ 20)', data:[17.85, 17.85, 17.85, 17.85, 17.85, 17.85, 17.85, 17.85, 17.85, 17.85, 17.85, 17.85, 17.85, 17.85, 17.85, 17.85, 17.85, 17.85, 17.85, 17.85], backgroundColor:'#2563a899', borderRadius:4, barThickness:22},
       {type:'line', label:'Meta de Encerramento (23/dia)', data:[23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23], borderColor:'#E2483D', backgroundColor:'#E2483D', tension:0, pointRadius:0, borderWidth:3, borderDash:[6,4]}
