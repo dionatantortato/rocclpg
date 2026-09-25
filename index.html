@@ -246,13 +246,12 @@
     </div>
   </div>
 
-  <div class="section-title"><span class="tag">FLUXO DIÁRIO</span><h2>Análises Realizadas (Expresso/DAF) e Projeção de Encerramento</h2><span class="note">21/09/2026 a 21/10/2026 · meta de 23 ROCs/dia</span><div class="rule"></div></div>
+  <div class="section-title"><span class="tag">FLUXO DIÁRIO</span><h2>Análises Realizadas (Expresso/DAF) e Projeção de Encerramento</h2><span class="note">21/09/2026 a 09/10/2026 (15 dias) · meta de 23 ROCs/dia</span><div class="rule"></div></div>
   <div class="panel">
     <h3>ROCs/dia — Movimentações Reais (por Data de Análise/Fechamento) + Distribuição Planejada (352 ÷ 20) vs. Meta</h3>
     <div class="flag-box" style="margin-bottom:14px;">Situação em <b>25/09/2026 (hoje)</b>, pela coluna Atualização: <b>5</b> Finalizadas · <b>64</b> Em Análise pela Expresso · <b>0</b> Encaminhadas para Análise DAF · <b>288</b> Pendentes — total de <b>357</b> ROCs de Desvios Internos ainda em aberto.</div>
     <canvas id="chartDesempenho" style="max-height:320px;"></canvas>
     <div class="note-box">Real: 16 ROCs iniciaram análise pela Expresso em 21/09, 40 em 22/09 e 8 em 24/09 (coluna Data de análise, status atual Em Análise Expresso); dentre as já finalizadas, 2 entraram em análise em 21/09 e 3 em 22/09, contabilizadas como Em Análise DAF nessas datas; as 5 ROCs finalizadas foram encerradas em 23/09 (coluna Data de Fechamento). Planejado: as 352 ROCs restantes distribuídas em 20 dias úteis (24/09 a 21/10), a 17,6 ROCs/dia.</div>
-    <div class="flag-box">Mantendo a meta de 23 encerramentos/dia útil, as 352 ROCs restantes podem ser zeradas em aproximadamente <b>16 dias úteis</b> — dentro da janela de 20 dias.</div>
   </div>
 
   <footer>
@@ -307,18 +306,19 @@ function showTab(name){
 if (typeof ChartDataLabels !== 'undefined') { Chart.register(ChartDataLabels); }
 new Chart(document.getElementById('chartDesempenho'), {
   data:{
-    labels:["21/09", "22/09", "23/09", "24/09", "25/09 (hoje)", "28/09", "29/09", "30/09", "01/10", "02/10", "05/10", "06/10", "07/10", "08/10", "09/10", "12/10", "13/10", "14/10", "15/10", "16/10", "19/10", "20/10", "21/10"],
+    labels:["21/09", "22/09", "23/09", "24/09", "25/09 (hoje)", "28/09", "29/09", "30/09", "01/10", "02/10", "05/10", "06/10", "07/10", "08/10", "09/10"],
     datasets:[
-      {type:'bar', label:'Em Análise Expresso (real)', data:[16, 40, null, 8, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null], backgroundColor:'#2563a8', borderRadius:4, barThickness:16, stack:'real', datalabels:{display:function(ctx){ return ctx.dataset.data[ctx.dataIndex]!==null; }, anchor:'end', align:'top', color:'#2563a8', font:{weight:'600', size:11}, formatter:function(v){ return v; }}},
-      {type:'bar', label:'Em Análise DAF (real)', data:[2, 3, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null], backgroundColor:'#F5B400', borderRadius:4, barThickness:16, stack:'real', datalabels:{display:function(ctx){ return ctx.dataset.data[ctx.dataIndex]!==null; }, anchor:'end', align:'top', color:'#B08000', font:{weight:'600', size:11}, formatter:function(v){ return v; }}},
-      {type:'bar', label:'Finalizadas (real)', data:[null, null, 5, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null], backgroundColor:'#2FAE66', borderRadius:4, barThickness:16, stack:'real', datalabels:{display:function(ctx){ return ctx.dataset.data[ctx.dataIndex]!==null; }, anchor:'end', align:'top', color:'#2FAE66', font:{weight:'600', size:11}, formatter:function(v){ return v; }}},
-      {type:'bar', label:'Distribuição Planejada (352 ÷ 20)', data:[null, null, null, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6], backgroundColor:'#B8BCC2', borderRadius:4, barThickness:16, datalabels:{display:false}},
-      {type:'line', label:'Meta de Encerramento (23/dia)', data:[23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23], borderColor:'#E2483D', backgroundColor:'#E2483D', tension:0, pointRadius:0, borderWidth:3, borderDash:[6,4], datalabels:{display:false}}
+      {type:'bar', label:'Em Análise Expresso (real)', data:[16, 40, null, 8, null, null, null, null, null, null, null, null, null, null, null], backgroundColor:'#2563a8', borderRadius:4, barThickness:14, datalabels:{display:function(ctx){ return ctx.dataset.data[ctx.dataIndex]!==null; }, anchor:'end', align:'top', color:'#2563a8', font:{weight:'600', size:11}, formatter:function(v){ return v; }}},
+      {type:'bar', label:'Em Análise DAF (real)', data:[2, 3, null, null, null, null, null, null, null, null, null, null, null, null, null], backgroundColor:'#F5B400', borderRadius:4, barThickness:14, datalabels:{display:function(ctx){ return ctx.dataset.data[ctx.dataIndex]!==null; }, anchor:'end', align:'top', color:'#B08000', font:{weight:'600', size:11}, formatter:function(v){ return v; }}},
+      {type:'bar', label:'Finalizadas (real)', data:[null, null, 5, null, null, null, null, null, null, null, null, null, null, null, null], backgroundColor:'#2FAE66', borderRadius:4, barThickness:14, datalabels:{display:function(ctx){ return ctx.dataset.data[ctx.dataIndex]!==null; }, anchor:'end', align:'top', color:'#2FAE66', font:{weight:'600', size:11}, formatter:function(v){ return v; }}},
+      {type:'bar', label:'Distribuição Planejada (352 ÷ 20)', data:[null, null, null, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6, 17.6], backgroundColor:'#B8BCC2', borderRadius:4, barThickness:14, datalabels:{display:false}},
+      {type:'line', label:'Meta de Encerramento (23/dia)', data:[23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23], borderColor:'#E2483D', backgroundColor:'#E2483D', tension:0, pointRadius:0, borderWidth:3, borderDash:[6,4], datalabels:{display:false}}
     ]
   },
   options:{
     responsive:true, interaction:{mode:'index',intersect:false},
-    scales:{ y:{ beginAtZero:true, title:{display:true,text:'ROCs por dia'} } },
+    scales:{ y:{ beginAtZero:true, suggestedMax:45, title:{display:true,text:'ROCs por dia'} } },
+    layout:{ padding:{ top:16 } },
     plugins:{legend:{position:'bottom',labels:{boxWidth:12,font:{size:11}}}, datalabels:{display:false}}
   }
 });
