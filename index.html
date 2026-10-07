@@ -263,9 +263,9 @@
       </div>
       <div class="panel card2 c-daf">
         <div class="c2-h"><svg class="ic" viewBox="0 0 24 24"><path d="M3 9l9-5 9 5"/><path d="M5 9v9M9.5 9v9M14.5 9v9M19 9v9M3 20h18"/></svg><span>ROC Enviadas a DAF para análise</span></div>
-        <div class="c2-big">49 <small>ROCs</small></div>
-        <div class="c2-sub">base: Em Análise Expresso + Em Análise DAF</div>
-        <div class="c2-body"><div class="c2-donut"><canvas id="chartDaf"></canvas></div><div class="c2-leg"><div class="lg"><i style="background:#2FAE66"></i><div><div class="lg-t">Enviadas à DAF <span class="lg-p">35,8%</span></div><div class="lg-s">49 ROCs</div><div class="lg-s">R$ 745.796,63</div></div></div><div class="lg"><i style="background:#D5D9DE"></i><div><div class="lg-t">Na Expresso <span class="lg-p">64,2%</span></div><div class="lg-s">88 ROCs</div><div class="lg-s">R$ 637.626,77</div></div></div></div></div>
+        <div class="c2-big">54 <small>ROCs</small></div>
+        <div class="c2-sub">base: Em Análise DAF + Finalizado</div>
+        <div class="c2-body"><div class="c2-donut"><canvas id="chartDaf"></canvas></div><div class="c2-leg"><div class="lg"><i style="background:#F5B400"></i><div><div class="lg-t">Em Análise DAF <span class="lg-p">90,7%</span></div><div class="lg-s">49 ROCs</div><div class="lg-s">R$ 745.796,63</div></div></div><div class="lg"><i style="background:#2FAE66"></i><div><div class="lg-t">Finalizado <span class="lg-p">9,3%</span></div><div class="lg-s">5 ROCs</div><div class="lg-s">R$ 20.557,20</div></div></div></div></div>
       </div>
       <div class="panel visual">
         <div class="c2-h"><svg class="ic" viewBox="0 0 24 24"><path d="M5 20V11M10 20V5M15 20v-7M20 20V9"/></svg><span>Resumo Visual</span></div>
@@ -355,7 +355,7 @@ if (typeof ChartDataLabels !== 'undefined') { Chart.register(ChartDataLabels); }
     if(document.fonts&&document.fonts.ready){document.fonts.ready.then(function(){ch.draw();});}
   }
   donut('chartExp',[88,215],['#2FAE66','#D5D9DE'],'29,0%','analisado',['Analisado (Em Análise Expresso)','Pendente']);
-  donut('chartDaf',[49,88],['#2FAE66','#D5D9DE'],'35,8%','enviadas',['Enviadas à DAF (Em Análise DAF)','Na Expresso']);
+  donut('chartDaf',[49,5],['#F5B400','#2FAE66'],'9,3%','finalizado',['Em Análise DAF','Finalizado']);
   donut('chartVis',[5,49,88,215],['#2FAE66','#F5B400','#B8BCC2','#E2483D'],'357','ROCs',['Finalizada','Em Análise DAF','Em Análise Expresso','Pendentes']);
 })();
 new Chart(document.getElementById('chartDesempenho'), {
