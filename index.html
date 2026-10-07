@@ -69,11 +69,11 @@
   .c2-big small{font-size:14px;color:var(--muted);font-weight:500;font-family:'Inter',sans-serif;}
   .c2-sub{font-size:11px;color:var(--muted);margin-top:2px;}
   .c2-body{display:flex;align-items:center;gap:14px;margin-top:14px;}
-  .c2-donut{position:relative;width:118px;height:118px;flex:none;}
+  .c2-donut{position:relative;width:106px;height:106px;flex:none;}
   .c2-leg{display:flex;flex-direction:column;gap:12px;flex:1;min-width:0;}
   .lg{display:grid;grid-template-columns:10px 1fr;gap:8px;align-items:start;font-size:12px;}
   .lg i{width:10px;height:10px;border-radius:50%;margin-top:3px;display:block;}
-  .lg-t{font-weight:600;color:var(--text);}
+  .lg-t{font-weight:600;color:var(--text);white-space:nowrap;}
   .lg-s{font-size:10.5px;color:var(--muted);margin-top:1px;}
   .lg-p{font-size:11.5px;color:var(--text);font-weight:700;margin-left:4px;}
   .lg-s{white-space:nowrap;}
@@ -257,15 +257,15 @@
       </div>
       <div class="panel card2 c-exp">
         <div class="c2-h"><svg class="ic" viewBox="0 0 24 24"><path d="M3 9l9-5 9 5"/><path d="M5 9v9M9.5 9v9M14.5 9v9M19 9v9M3 20h18"/></svg><span>Total analisado Expresso</span></div>
-        <div class="c2-big">137 <small>ROCs</small></div>
-        <div class="c2-sub">soma de análises Expresso + DAF</div>
-        <div class="c2-body"><div class="c2-donut"><canvas id="chartExp"></canvas></div><div class="c2-leg"><div class="lg"><i style="background:#2FAE66"></i><div><div class="lg-t">Analisado <span class="lg-p">38,4%</span></div><div class="lg-s">137 ROCs</div><div class="lg-s">R$ 1.383.423,40</div></div></div><div class="lg"><i style="background:#D5D9DE"></i><div><div class="lg-t">Pendente <span class="lg-p">61,6%</span></div><div class="lg-s">220 ROCs</div><div class="lg-s">R$ 872.236,25</div></div></div></div></div>
+        <div class="c2-big">88 <small>ROCs</small></div>
+        <div class="c2-sub">base: Em Análise Expresso + Pendentes</div>
+        <div class="c2-body"><div class="c2-donut"><canvas id="chartExp"></canvas></div><div class="c2-leg"><div class="lg"><i style="background:#2FAE66"></i><div><div class="lg-t">Analisado <span class="lg-p">29,0%</span></div><div class="lg-s">88 ROCs</div><div class="lg-s">R$ 637.626,77</div></div></div><div class="lg"><i style="background:#D5D9DE"></i><div><div class="lg-t">Pendente <span class="lg-p">71,0%</span></div><div class="lg-s">215 ROCs</div><div class="lg-s">R$ 851.679,05</div></div></div></div></div>
       </div>
       <div class="panel card2 c-daf">
         <div class="c2-h"><svg class="ic" viewBox="0 0 24 24"><path d="M3 9l9-5 9 5"/><path d="M5 9v9M9.5 9v9M14.5 9v9M19 9v9M3 20h18"/></svg><span>ROC Enviadas a DAF para análise</span></div>
-        <div class="c2-big">54 <small>ROCs</small></div>
-        <div class="c2-sub">em análise DAF + finalizadas</div>
-        <div class="c2-body"><div class="c2-donut"><canvas id="chartDaf"></canvas></div><div class="c2-leg"><div class="lg"><i style="background:#2FAE66"></i><div><div class="lg-t">Analisado <span class="lg-p">15,1%</span></div><div class="lg-s">54 ROCs</div><div class="lg-s">R$ 766.353,83</div></div></div><div class="lg"><i style="background:#D5D9DE"></i><div><div class="lg-t">Pendente <span class="lg-p">84,9%</span></div><div class="lg-s">303 ROCs</div><div class="lg-s">R$ 1.489.305,82</div></div></div></div></div>
+        <div class="c2-big">49 <small>ROCs</small></div>
+        <div class="c2-sub">base: Em Análise Expresso + Em Análise DAF</div>
+        <div class="c2-body"><div class="c2-donut"><canvas id="chartDaf"></canvas></div><div class="c2-leg"><div class="lg"><i style="background:#2FAE66"></i><div><div class="lg-t">Enviadas à DAF <span class="lg-p">35,8%</span></div><div class="lg-s">49 ROCs</div><div class="lg-s">R$ 745.796,63</div></div></div><div class="lg"><i style="background:#D5D9DE"></i><div><div class="lg-t">Na Expresso <span class="lg-p">64,2%</span></div><div class="lg-s">88 ROCs</div><div class="lg-s">R$ 637.626,77</div></div></div></div></div>
       </div>
       <div class="panel visual">
         <div class="c2-h"><svg class="ic" viewBox="0 0 24 24"><path d="M5 20V11M10 20V5M15 20v-7M20 20V9"/></svg><span>Resumo Visual</span></div>
@@ -350,12 +350,12 @@ if (typeof ChartDataLabels !== 'undefined') { Chart.register(ChartDataLabels); }
       data:{labels:labels,datasets:[{data:data,backgroundColor:colors,borderColor:'#fff',borderWidth:2}]},
       options:{responsive:true,maintainAspectRatio:false,cutout:'66%',
         plugins:{legend:{display:false},datalabels:{display:false},
-          tooltip:{callbacks:{label:function(i){var v=i.parsed;return ' '+i.label+': '+v+' ('+(v/357*100).toFixed(1).replace('.',',')+'%)';}}}}},
+          tooltip:{callbacks:{label:function(i){var v=i.parsed;var tot=i.dataset.data.reduce(function(a,b){return a+b;},0);return ' '+i.label+': '+v+' ('+(v/tot*100).toFixed(1).replace('.',',')+'%)';}}}}},
       plugins:[plug]});
     if(document.fonts&&document.fonts.ready){document.fonts.ready.then(function(){ch.draw();});}
   }
-  donut('chartExp',[137,220],['#2FAE66','#D5D9DE'],'38,4%','analisado',['Analisado','Pendente']);
-  donut('chartDaf',[54,303],['#2FAE66','#D5D9DE'],'15,1%','analisado',['Analisado','Pendente']);
+  donut('chartExp',[88,215],['#2FAE66','#D5D9DE'],'29,0%','analisado',['Analisado (Em Análise Expresso)','Pendente']);
+  donut('chartDaf',[49,88],['#2FAE66','#D5D9DE'],'35,8%','enviadas',['Enviadas à DAF (Em Análise DAF)','Na Expresso']);
   donut('chartVis',[5,49,88,215],['#2FAE66','#F5B400','#B8BCC2','#E2483D'],'357','ROCs',['Finalizada','Em Análise DAF','Em Análise Expresso','Pendentes']);
 })();
 new Chart(document.getElementById('chartDesempenho'), {
